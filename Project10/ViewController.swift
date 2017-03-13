@@ -107,7 +107,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     let picker = UIImagePickerController()
     picker.delegate = self
     picker.allowsEditing = true
-    picker.sourceType = .camera
+    
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      picker.sourceType = .camera
+    }
+    
     present(picker, animated: true)
   }
 
